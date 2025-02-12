@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC 25 Licensed Serie A Mod Issue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            width: 30%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        .gallery img:hover {
+            transform: scale(1.2);
+            z-index: 10;
+        }
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+        }
+        .fullscreen img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll(".gallery img");
+            const fullscreen = document.createElement("div");
+            fullscreen.classList.add("fullscreen");
+            const imgElement = document.createElement("img");
+            const closeButton = document.createElement("div");
+            closeButton.classList.add("close-btn");
+            closeButton.innerHTML = "&times;";
+            fullscreen.appendChild(closeButton);
+            fullscreen.appendChild(imgElement);
+            document.body.appendChild(fullscreen);
+
+            images.forEach(img => {
+                img.addEventListener("click", function() {
+                    imgElement.src = this.src;
+                    fullscreen.style.display = "flex";
+                });
+            });
+
+            closeButton.addEventListener("click", function() {
+                fullscreen.style.display = "none";
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Issues from FC 25 Licensed Serie A Mod by ViP3eR</h1>
+        <div class="gallery">
+            <img src="IMG_5870.JPG" alt="Image 1">
+            <img src="IMG_5868.JPG" alt="Image 2">
+            <img src="IMG_5867.JPG" alt="Image 3">
+        </div>
+    </div>
+</body>
+</html>
